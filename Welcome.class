@@ -1,0 +1,29 @@
+//importing the scanner
+import java.util.Scanner;
+
+//Welcome class that will welcome the user and ask a couple of questions
+public class Welcome
+{
+    public void welcomeUser
+    {
+    //Main code used for the welcome class
+    
+        System.out.println("Welcome user, what is your name?");
+        System.out.println();
+        System.out.println("Type your name: ");
+
+        //scanner name class
+        Scanner name = new Scanner(System.in);
+        String userName = name.nextLine();
+
+        System.out.println("You may enter " + userName);
+
+        Thread.sleep(1000); // this peice of code uses the thread method and pauses for 1 second, i learned this from online forums
+
+        System.out.println("Would you like instructions? \nType 'Help' if you need help | Type 'Go' if you do not");
+        Scanner helpScanner = new Scanner(System.in);
+        String helpString = helpScanner.nextLine();
+    
+    }
+   
+}
