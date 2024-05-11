@@ -64,7 +64,7 @@ public class Welcome
     // Checks if user needs help
     public void showHelp()
     {
-        System.out.println("I work");
+        System.out.println("Showing 'Help'");
     }
 
 }
