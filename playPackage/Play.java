@@ -1,10 +1,10 @@
-package welcomePackage;
+package playPackage;
 
 //importing the scanner
 import java.util.Scanner;
 
 //Welcome class that will welcome the user and ask a couple of questions
-public class Welcome
+public class Play
 {
     private boolean helpBoolean; // Apparently this has to be in the class level in order for all methods can access it, should of know LOL
 
@@ -20,7 +20,15 @@ public class Welcome
         Scanner name = new Scanner(System.in);
         String userName = name.nextLine();
 
+        if (userName.equals("Ernesto")) // Ernesto cannot enter
+        {
+            System.out.print("You may not enter Ernesto");
+            return;
+        }
+        else
+        {
         System.out.println("You may enter " + userName);
+        }   
 
         Thread.sleep(1000); // this peice of code uses the thread method and pauses for 1 second, i learned this from online forums
 
@@ -31,7 +39,7 @@ public class Welcome
         // This for loop is to make sure that the person types the right thing, if they don't it will repeat
         for (int i= 0; i < helpLoop; i++)
         {
-            System.out.println("Would you like instructions? \nType 'Help' if you need help | Type 'Go' if you do not"); // \n breaks the lines up so I dont have to write a bunch of print functions
+            System.out.println("\nWould you like instructions? \nType 'Help' if you need help | Type 'Go' if you do not"); // \n breaks the lines up so I dont have to write a bunch of print functions
             Scanner helpScanner = new Scanner(System.in);
             String helpString = helpScanner.nextLine();
         
@@ -53,19 +61,27 @@ public class Welcome
             }
         }
 
-        if (helpBoolean)
+        if (helpBoolean == true)
         {
             showHelp();
         }
-        
+
+        else if(helpBoolean == false)
+        {
+            goOpen();
+        }
 
     }
 
     // Checks if user needs help
     public void showHelp()
     {
-        System.out.println("Showing 'Help'");
+        System.out.println("\nShowing 'Help'\n#1: How to pick the crate you want\n- You will be prompted...");
     }
 
+    public void goOpen()
+    {
+        System.out.println("Open crates work");
+    }
 }
 

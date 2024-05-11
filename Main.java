@@ -1,9 +1,9 @@
-import welcomePackage.Welcome;
+import playPackage.Play;
 
 public class Main{
 public static void main (String[] args) throws InterruptedException 
     {
-        Welcome wU = new Welcome();
+        Play wU = new Play();
 
 
         wU.welcomeUser();
