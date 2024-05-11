@@ -1,10 +1,12 @@
-import Welcome.wU
+import welcomePackage.Welcome;
 
 public class Main{
-public static void main (String[] args) throws InterruptedException // I just learned the throws function, this allows me to have a pause in time between printing, this gives it a nicer feel
+public static void main (String[] args) throws InterruptedException 
     {
         Welcome wU = new Welcome();
-        wU.welcomeUser;
+
+
+        wU.welcomeUser();
         
     }
 }
