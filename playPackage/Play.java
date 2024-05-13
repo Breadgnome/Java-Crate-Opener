@@ -7,6 +7,8 @@ import java.util.Scanner;
 public class Play
 {
     private boolean helpBoolean; // Apparently this has to be in the class level in order for all methods can access it, should of know LOL
+    private int helpLoop = 1;
+    private int helpLoopGo = 1;
 
     public void welcomeUser() throws InterruptedException // I just learned the throws function, this allows me to have a pause in time between printing, this gives it a nicer feel
     {
@@ -34,7 +36,7 @@ public class Play
 
         
         // This asks the person if they want help, they will type out "Help" or "Go"
-        int helpLoop = 1;
+        
         
         // This for loop is to make sure that the person types the right thing, if they don't it will repeat
         for (int i= 0; i < helpLoop; i++)
@@ -77,11 +79,30 @@ public class Play
     public void showHelp()
     {
         System.out.println("\nShowing 'Help'\n#1: How to pick the crate you want\n- You will be prompted...");
+        
+        for (int i= 0; i < helpLoopGo; i++)
+        {
+            System.out.println("Type 'Go' to move on\n");
+            Scanner helpScannerGo = new Scanner(System.in);
+            String helpStringGo = helpScannerGo.nextLine();
+
+            if (helpStringGo.equals("Go"))
+            {
+                goOpen();
+            }
+
+            else
+            {
+                helpLoopGo ++;
+            }
+        }
+        
     }
 
     public void goOpen()
     {
-        System.out.println("Open crates work");
+        System.out.println("Pick your crate:\n #1 - Common Case \n #2 - Uncommon Case \n #3 - Rare Cares \n #4 - Legendary Case");
+        System.out.println("\nType '#' and then the number of what case you want");
     }
 }
 
