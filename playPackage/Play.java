@@ -1,5 +1,8 @@
 package playPackage;
 
+// imports the crates package
+import cratesPackage.Crates;
+
 //importing the scanner
 import java.util.Scanner;
 
