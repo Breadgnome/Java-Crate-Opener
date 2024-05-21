@@ -9,9 +9,11 @@ public class Crates // where the code for crates will be located
         typeCase = c;
     }
 }
+
+// common
 public class Common extends Crates
 {
-            
+                
 }
 
 public class CommonCase extends Common
@@ -24,6 +26,7 @@ public class UncommonCase extends Common
 
 }   
 
+// rare
 public class Rare extends Crates
 {
 

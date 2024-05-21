@@ -12,6 +12,7 @@ public class Play
     private boolean helpBoolean; // Apparently this has to be in the class level in order for all methods can access it, should of know LOL
     private int helpLoop = 1;
     private int helpLoopGo = 1;
+    private int chooseCrateGo =1;
 
     public void welcomeUser() throws InterruptedException // I just learned the throws function, this allows me to have a pause in time between printing, this gives it a nicer feel
     {
@@ -106,6 +107,40 @@ public class Play
     {
         System.out.println("Pick your crate:\n #1 - Common Case \n #2 - Uncommon Case \n #3 - Rare Cares \n #4 - Legendary Case");
         System.out.println("\nType '#' and then the number of what case you want");
+        System.out.println("Example: #1");
+
+        Scanner goOpenScanner = new Scanner(System.in);
+        String goOpenString = goOpenScanner.nextLine();
+
+        for (int i= 0; i < helpLoopGo; i++)
+        {
+            if (goOpenString.equals("#1"))
+            {
+                System.out.println("You have picked a Common Case");
+            }
+
+            else if (goOpenString.equals("#2"))
+            {
+                System.out.println("You have picked an Uncommon Case");
+            }
+
+            else if (goOpenString.equals("#3"))
+            {
+                System.out.println("You have picked a Rare Case");
+            }
+
+            else if (goOpenString.equals("#4"))
+            {
+                System.out.println("You have picked a Legendary Case");
+            }
+
+            else
+            {
+                helpLoopGo ++;
+            }
+        }
+
+        
     }
 }
 
