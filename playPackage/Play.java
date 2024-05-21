@@ -1,10 +1,9 @@
 package playPackage;
 
-// imports the crates package
-import cratesPackage.Crates;
-
 //importing the scanner
 import java.util.Scanner;
+
+import cratesPackage.Crates;
 
 //Welcome class that will welcome the user and ask a couple of questions
 public class Play
