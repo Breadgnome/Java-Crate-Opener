@@ -111,7 +111,7 @@ public class Play
         Scanner goOpenScanner = new Scanner(System.in);
         String goOpenString = goOpenScanner.nextLine();
 
-        for (int i= 0; i < helpLoopGo; i++)
+        for (int i= 0; i < chooseCrateGo; i++)
         {
             if (goOpenString.equals("#1"))
             {

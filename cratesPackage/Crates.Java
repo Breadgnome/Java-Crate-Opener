@@ -4,7 +4,12 @@ public class Crates // where the code for crates will be located
 {
     private String typeCase;
     private int itemsCaseCount = 10;
+    
     // add array of the basic items in the crate
+    public String[] createBasicItemsArray() 
+    {
+        String[] basicItems = {"Common Duck", "Common Goose", "Uncommon Goose", "Rare Goose", "Legendary Lochness Monster"};
+    }
 
 // common
 public class Common extends Crates
