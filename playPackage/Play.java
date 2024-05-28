@@ -13,6 +13,12 @@ public class Play
     private int helpLoopGo = 1;
     private int chooseCrateGo =1;
 
+        Crates crate = new Crates();
+        crate.roll();
+        crate.RareRoll();
+        crate.LegendaryRoll();
+        crate.CommonRoll();
+
     public void welcomeUser() throws InterruptedException // I just learned the throws function, this allows me to have a pause in time between printing, this gives it a nicer feel
     {
     //Main code used for the welcome class
@@ -108,6 +114,8 @@ public class Play
         System.out.println("\nType '#' and then the number of what case you want");
         System.out.println("Example: #1");
 
+       
+
         Scanner goOpenScanner = new Scanner(System.in);
         String goOpenString = goOpenScanner.nextLine();
 
@@ -116,21 +124,29 @@ public class Play
             if (goOpenString.equals("#1"))
             {
                 System.out.println("You have picked a Common Case");
+                Crates.CommonCase commonCase = new Crates.CommonCase();
+                commonCase.roll();
             }
 
             else if (goOpenString.equals("#2"))
             {
                 System.out.println("You have picked an Uncommon Case");
+                Crates.UncommonCase uncommonCase = new Crates.UncommonCase();
+                uncommonCase.roll();
             }
 
             else if (goOpenString.equals("#3"))
             {
                 System.out.println("You have picked a Rare Case");
+                Crates.RareCase rareCase = new Crates.RareCase();
+                rareCase.roll();
             }
 
             else if (goOpenString.equals("#4"))
             {
                 System.out.println("You have picked a Legendary Case");
+                Crates.Legendary legendaryCase = new Crates.Legendary();
+                Legendary.roll();
             }
 
             else
