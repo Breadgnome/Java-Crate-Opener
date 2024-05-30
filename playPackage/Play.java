@@ -90,6 +90,9 @@ public class Play
 
     public void goOpen() 
     {
+        public int rollChance;
+        
+
         System.out.println("Pick your crate:\n #1 - Common Case \n #2 - Uncommon Case \n #3 - Rare Cases \n #4 - Legendary Case");
         System.out.println("\nType '#' and then the number of what case you want");
         System.out.println("Example: #'then the number of the case you want'");
@@ -104,7 +107,8 @@ public class Play
         {
             if (goOpenString.equals("#1")) {
                 System.out.println("You have picked a Common Case");
-                
+
+                rollChance = (int) (Math.random() * 1500);
                 // Create an instance of the Crates class
                 Crates commonCase = new Crates();
 
@@ -141,53 +145,49 @@ public class Play
 
 public class Crates 
 {
-    public int rollChance;
+    public int numRoll;
     public String itemRolled;
 
     // add array of the basic items in the crate
-    public String[] basicItemsArray() 
-    {
-        String[] basicItems = {"Common Duck", "Common Goose", "Uncommon Goose", "Rare Goose", "Legendary Lochness Monster"};
-        rollChance = (int) (Math.random() * 1500);
-        return basicItems;
-    }
+    
     public void roll() 
     {
+        
         if (rollChance < 25) 
         {
-            itemRolled = basicItemsArray()[4];
+            itemRolled = "Legendary Lochness Monster";
             System.out.println(itemRolled);
         } 
         else if (rollChance > 25 && rollChance < 200) 
         {
-            itemRolled = basicItemsArray()[3];
+            itemRolled = "Rare Duck";
             System.out.println(itemRolled);
         } 
         else if (rollChance > 200 && rollChance < 500) 
         {
-            itemRolled = basicItemsArray()[2];
+            itemRolled = "Rare Goose";
             System.out.println(itemRolled);
         } 
         else if (rollChance > 500 && rollChance < 1000) 
         {
-            itemRolled = basicItemsArray()[1];
+            itemRolled = "Common Goose";
             System.out.println(itemRolled);
         } 
         else if (rollChance > 1000 && rollChance < 1500) 
         {
-            itemRolled = basicItemsArray()[1];
+            itemRolled = "Common Duck";
             System.out.println(itemRolled);
         }
     }
 
-    // common
+    /* common
     public class Common extends Crates 
     {
         public void roll() 
         {
             if (rollChance < 25) 
             {
-                itemRolled = basicItemsArray()[4];
+                itemRolled = ()[4]basicItemsArray;
                 System.out.println(itemRolled);
             } 
             else if (rollChance > 25 && rollChance < 200) 
@@ -315,4 +315,7 @@ public class Crates
             }
         }
     }
-}}
+    */
+    
+    }
+}
