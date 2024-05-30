@@ -1,28 +1,18 @@
 package playPackage;
 
-import cratesPackage.Crates;
-
-//importing the scanner
 import java.util.Scanner;
 
-//Welcome class that will welcome the user and ask a couple of questions
-public class Play
+public class Play 
 {
-    private boolean helpBoolean; // Apparently this has to be in the class level in order for all methods can access it, should of know LOL
+    private boolean helpBoolean;
     private int helpLoop = 1;
     private int helpLoopGo = 1;
-    private int chooseCrateGo =1;
+    private int chooseCrateGo = 1;
 
-        Crates crate = new Crates();
-        crate.roll();
-        crate.RareRoll();
-        crate.LegendaryRoll();
-        crate.CommonRoll();
-
-    public void welcomeUser() throws InterruptedException // I just learned the throws function, this allows me to have a pause in time between printing, this gives it a nicer feel
+    public void welcomeUser() throws InterruptedException 
     {
-    //Main code used for the welcome class
-    
+        //Main code used for the welcome class
+
         System.out.println("Welcome user, what is your name?");
         System.out.println();
         System.out.println("Type your name: ");
@@ -31,131 +21,298 @@ public class Play
         Scanner name = new Scanner(System.in);
         String userName = name.nextLine();
 
-        if (userName.equals("Ernesto")) // Ernesto cannot enter
+        if (userName.equals("Ernesto")) 
         {
+            // Ernesto cannot enter
             System.out.print("You may not enter Ernesto");
             return;
-        }
-        else
+        } 
+        else 
         {
-        System.out.println("You may enter " + userName);
-        }   
+            System.out.println("You may enter " + userName);
+        }
 
         Thread.sleep(1000); // this peice of code uses the thread method and pauses for 1 second, i learned this from online forums
 
-        
         // This asks the person if they want help, they will type out "Help" or "Go"
-        
-        
-        // This for loop is to make sure that the person types the right thing, if they don't it will repeat
-        for (int i= 0; i < helpLoop; i++)
+        for (int i = 0; i < helpLoop; i++) 
         {
             System.out.println("\nWould you like instructions? \nType 'Help' if you need help | Type 'Go' if you do not"); // \n breaks the lines up so I dont have to write a bunch of print functions
             Scanner helpScanner = new Scanner(System.in);
             String helpString = helpScanner.nextLine();
-        
-            if (helpString.equals("Help"))
+
+            if (helpString.equals("Help")) 
             {
                 helpBoolean = true;
                 helpLoop = 0;
-            }
-
-            else if (helpString.equals("Go"))
+            } 
+            else if (helpString.equals("Go")) 
             {
                 helpBoolean = false;
                 helpLoop = 0;
-            }
-
-            else
+            } 
+            else 
             {
-                helpLoop ++;
+                helpLoop++;
             }
         }
 
-        if (helpBoolean == true)
+        if (helpBoolean == true) 
         {
             showHelp();
-        }
-
-        else if(helpBoolean == false)
+        } 
+        else if (helpBoolean == false) 
         {
             goOpen();
         }
-
     }
 
-    // Checks if user needs help
-    public void showHelp()
+    public void showHelp() 
     {
         System.out.println("\nShowing 'Help'\n#1: How to pick the crate you want\n- You will be prompted...");
-        
-        for (int i= 0; i < helpLoopGo; i++)
-        {
+
+        for (int i = 0; i < helpLoopGo; i++) {
+
             System.out.println("Type 'Go' to move on\n");
             Scanner helpScannerGo = new Scanner(System.in);
             String helpStringGo = helpScannerGo.nextLine();
 
-            if (helpStringGo.equals("Go"))
+            if (helpStringGo.equals("Go")) 
             {
                 goOpen();
-            }
-
-            else
+            } 
+            else 
             {
-                helpLoopGo ++;
+                helpLoopGo++;
             }
         }
-        
     }
 
-    public void goOpen()
+    public void goOpen() 
     {
-        System.out.println("Pick your crate:\n #1 - Common Case \n #2 - Uncommon Case \n #3 - Rare Cares \n #4 - Legendary Case");
+        System.out.println("Pick your crate:\n #1 - Common Case \n #2 - Uncommon Case \n #3 - Rare Cases \n #4 - Legendary Case");
         System.out.println("\nType '#' and then the number of what case you want");
-        System.out.println("Example: #1");
+        System.out.println("Example: #'then the number of the case you want'");
 
-       
+        Crates crate = new Crates();
+        crate.roll();
 
         Scanner goOpenScanner = new Scanner(System.in);
         String goOpenString = goOpenScanner.nextLine();
 
-        for (int i= 0; i < chooseCrateGo; i++)
+        for (int i = 0; i < chooseCrateGo; i++) 
         {
-            if (goOpenString.equals("#1"))
-            {
+            if (goOpenString.equals("#1")) {
                 System.out.println("You have picked a Common Case");
-                Crates.CommonCase commonCase = new Crates.CommonCase();
-                commonCase.roll();
-            }
+                
+                // Create an instance of the Crates class
+                Crates commonCase = new Crates();
 
-            else if (goOpenString.equals("#2"))
+                // Call the roll method for each case
+                commonCase.roll();
+
+            } 
+            
+            else if (goOpenString.equals("#2")) 
             {
                 System.out.println("You have picked an Uncommon Case");
-                Crates.UncommonCase uncommonCase = new Crates.UncommonCase();
+                Crates uncommonCase = new Crates();
                 uncommonCase.roll();
-            }
-
-            else if (goOpenString.equals("#3"))
+            } 
+            else if (goOpenString.equals("#3")) 
             {
                 System.out.println("You have picked a Rare Case");
-                Crates.RareCase rareCase = new Crates.RareCase();
+                Crates rareCase = new Crates();
                 rareCase.roll();
-            }
 
-            else if (goOpenString.equals("#4"))
+            } 
+            else if (goOpenString.equals("#4")) 
             {
                 System.out.println("You have picked a Legendary Case");
-                Crates.Legendary legendaryCase = new Crates.Legendary();
-                Legendary.roll();
-            }
-
-            else
+                Crates legendaryCase = new Crates();
+                legendaryCase.roll();
+            } 
+            else 
             {
-                helpLoopGo ++;
+                helpLoopGo++;
             }
         }
-
-        
     }
-}
 
+public class Crates 
+{
+    public int rollChance;
+    public String itemRolled;
+
+    // add array of the basic items in the crate
+    public String[] basicItemsArray() 
+    {
+        String[] basicItems = {"Common Duck", "Common Goose", "Uncommon Goose", "Rare Goose", "Legendary Lochness Monster"};
+        rollChance = (int) (Math.random() * 1500);
+        return basicItems;
+    }
+    public void roll() 
+    {
+        if (rollChance < 25) 
+        {
+            itemRolled = basicItemsArray()[4];
+            System.out.println(itemRolled);
+        } 
+        else if (rollChance > 25 && rollChance < 200) 
+        {
+            itemRolled = basicItemsArray()[3];
+            System.out.println(itemRolled);
+        } 
+        else if (rollChance > 200 && rollChance < 500) 
+        {
+            itemRolled = basicItemsArray()[2];
+            System.out.println(itemRolled);
+        } 
+        else if (rollChance > 500 && rollChance < 1000) 
+        {
+            itemRolled = basicItemsArray()[1];
+            System.out.println(itemRolled);
+        } 
+        else if (rollChance > 1000 && rollChance < 1500) 
+        {
+            itemRolled = basicItemsArray()[1];
+            System.out.println(itemRolled);
+        }
+    }
+
+    // common
+    public class Common extends Crates 
+    {
+        public void roll() 
+        {
+            if (rollChance < 25) 
+            {
+                itemRolled = basicItemsArray()[4];
+                System.out.println(itemRolled);
+            } 
+            else if (rollChance > 25 && rollChance < 200) 
+            {
+                itemRolled = basicItemsArray()[3];
+                System.out.println(itemRolled);
+            } 
+            else if (rollChance > 200 && rollChance < 500) 
+            {
+                itemRolled = basicItemsArray()[2];
+                System.out.println(itemRolled);
+            } 
+            else if (rollChance > 500 && rollChance < 1000) 
+            {
+                itemRolled = basicItemsArray()[1];
+                System.out.println(itemRolled);
+            } 
+            else if (rollChance > 1000 && rollChance < 1500) 
+            {
+                itemRolled = basicItemsArray()[1];
+                System.out.println(itemRolled);
+            }
+        }
+    }
+
+    // uncommon
+    public class Uncommon extends Crates 
+    {
+        public void roll() 
+        {
+            rollChance = (int) (Math.random() * 2500);
+            if (rollChance < 25) {
+                itemRolled = basicItemsArray()[4];
+                System.out.println(itemRolled);
+            } 
+            else if (rollChance > 25 && rollChance < 200) 
+            {
+                itemRolled = basicItemsArray()[3];
+                System.out.println(itemRolled);
+            } 
+            else if (rollChance > 200 && rollChance < 500) 
+            {
+                itemRolled = basicItemsArray()[2];
+                System.out.println(itemRolled);
+            } 
+            else if (rollChance > 500 && rollChance < 1000) 
+            {
+                itemRolled = basicItemsArray()[1];
+                System.out.println(itemRolled);
+            } 
+            else if (rollChance > 1000 && rollChance < 1500) 
+            {
+                itemRolled = basicItemsArray()[1];
+                System.out.println(itemRolled);
+            }
+        }
+    }
+
+    // rare
+    public class Rare extends Crates 
+    {
+        public void roll() 
+        {
+            rollChance = (int) (Math.random() * 2500);
+            if (rollChance < 25) 
+            {
+                itemRolled = basicItemsArray()[4];
+                System.out.println(itemRolled);
+            } 
+            else if (rollChance > 25 && rollChance < 200) 
+            {
+                itemRolled = basicItemsArray()[3];
+                System.out.println(itemRolled);
+            } 
+            else if (rollChance > 200 && rollChance < 500) 
+            {
+                itemRolled = basicItemsArray()[2];
+                System.out.println(itemRolled);
+            } 
+            else if (rollChance > 500 && rollChance < 1000) 
+            {
+                itemRolled = basicItemsArray()[1];
+                System.out.println(itemRolled);
+            } 
+            else if (rollChance > 1000 && rollChance < 1500) 
+            {
+                itemRolled = basicItemsArray()[1];
+                System.out.println(itemRolled);
+            }
+        }
+    }
+
+    // legendary
+    public class Legendary extends Crates 
+    {
+        private String[] legendaryItems = {"Legendary Duck", "Legendary Goose", "Epic Duck", "Epic Goose", "Mythical Lochness Monster"};
+
+        public void roll() 
+        {
+            rollChance = (int) (Math.random() * 2500);
+            if (rollChance < 25) 
+            {
+                itemRolled = legendaryItems[4];
+                System.out.println(itemRolled);
+            } 
+            else if (rollChance > 25 && rollChance < 200) 
+            {
+                itemRolled = legendaryItems[3];
+                System.out.println(itemRolled);
+            } 
+            else if (rollChance > 200 && rollChance < 500) 
+            {
+                itemRolled = legendaryItems[2];
+                System.out.println(itemRolled);
+            } 
+            else if (rollChance > 500 && rollChance < 1000) 
+            {
+                itemRolled = legendaryItems[1];
+                System.out.println(itemRolled);
+            } 
+            else if (rollChance > 1000 && rollChance < 1500) 
+            {
+                itemRolled = legendaryItems[1];
+                System.out.println(itemRolled);
+            }
+        }
+    }
+}}
